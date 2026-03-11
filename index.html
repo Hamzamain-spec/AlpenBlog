@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlpenBlog — Hoch hinaus im Leben</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--pine:#1D4A2A;--forest:#2A6B3A;--snow:#F0F5F1;--white:#fff;--stone:#8A9E8E;--dark:#0E1F12;--mid:#5A7060;--border:#C8DCC8;--peak:#E8F0EA;--rust:#8B3A1A;--sky:#5B9BD5;--gold:#C8A020}
+body{font-family:'Outfit',sans-serif;background:var(--snow);color:var(--dark)}
+
+/* MOUNTAIN SKYLINE TOP */
+.mountain-top{height:12px;background:var(--pine);position:relative;overflow:hidden}
+.mountain-top::before{content:'';position:absolute;bottom:0;left:0;right:0;height:12px;background:
+  linear-gradient(135deg,transparent 50%,var(--pine) 50%) 0 0/40px 12px,
+  linear-gradient(225deg,transparent 50%,var(--pine) 50%) 20px 0/40px 12px;background-color:var(--snow)}
+
+/* HEADER */
+header{background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,0.05)}
+.header-inner{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;display:flex;align-items:center;gap:14px}
+.logo-mountain{font-size:42px;line-height:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1))}
+.logo-text{}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--pine);letter-spacing:-0.5px;line-height:1}
+.logo-name span{color:var(--rust)}
+.logo-sub{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--stone);margin-top:2px;font-weight:500}
+.header-nav-pills{display:flex;gap:8px}
+.pill{background:var(--peak);border:1px solid var(--border);color:var(--mid);font-size:11px;font-weight:600;padding:6px 14px;border-radius:100px;letter-spacing:0.5px;text-decoration:none;transition:all 0.2s}
+.pill:hover,.pill.active{background:var(--pine);color:#fff;border-color:var(--pine)}
+
+/* NAV */
+nav{background:var(--pine)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex}
+nav a{display:block;padding:12px 18px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all 0.2s;border-bottom:2px solid transparent}
+nav a:hover{color:#fff;border-bottom-color:var(--gold)}
+
+/* HERO */
+.hero{position:relative;background:linear-gradient(180deg,var(--pine) 0%,var(--forest) 60%,#3A8A4A 100%);padding:80px 32px 100px;overflow:hidden}
+.hero-mountains{position:absolute;bottom:0;left:0;right:0;height:80px}
+.hero-mountains svg{width:100%;height:80px;display:block}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:7px 16px;border-radius:100px;margin-bottom:24px}
+.hero-badge-icon{font-size:14px}
+.hero-badge-text{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:62px;color:#fff;line-height:1.0;margin-bottom:22px;font-weight:700}
+.hero h1 em{color:var(--gold);font-style:italic;display:block}
+.hero p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;font-weight:300;max-width:460px;margin-bottom:34px}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--dark);padding:14px 28px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;transition:all 0.2s}
+.hero-btn:hover{background:#fff}
+.hero-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-tile{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);padding:22px 18px;border-radius:8px;text-align:center;transition:background 0.2s}
+.hero-tile:hover{background:rgba(255,255,255,0.14)}
+.hero-tile-icon{font-size:28px;margin-bottom:8px}
+.hero-tile-label{font-size:12px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:0.5px}
+.hero-tile-val{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;font-weight:700}
+
+/* SECTION */
+.section{max-width:1200px;margin:56px auto;padding:0 32px}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.section-head-icon{width:36px;height:36px;background:var(--pine);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.section-head-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--pine);letter-spacing:-0.3px}
+.section-head-line{flex:1;height:1px;background:var(--border)}
+.see-all{font-size:12px;font-weight:600;color:var(--forest);text-decoration:none;white-space:nowrap}
+.see-all:hover{color:var(--gold)}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:all 0.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(29,74,42,0.12);border-color:var(--forest)}
+.card-img{height:188px;position:relative;overflow:hidden}
+.card-img-bg{width:100%;height:100%;transition:transform 0.5s}
+.card:hover .card-img-bg{transform:scale(1.06)}
+.card-cat{position:absolute;bottom:12px;left:12px;background:var(--pine);color:#fff;font-size:9px;font-weight:700;letter-spacing:2px;padding:4px 10px;text-transform:uppercase;border-radius:100px}
+.card-body{padding:22px}
+.card-author{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.card-author-dot{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--pine),var(--forest));display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:700}
+.card-author-name{font-size:12px;font-weight:600;color:var(--stone)}
+.card-author-date{font-size:11px;color:#bbb;margin-left:auto}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--dark);line-height:1.25;margin-bottom:10px}
+.card-excerpt{font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:16px}
+.card-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--forest);text-decoration:none;letter-spacing:0.5px;text-transform:uppercase}
+.card-link:hover{color:var(--gold)}
+
+.bg1{background:linear-gradient(135deg,#1D4A2A,#2A6B3A)}
+.bg2{background:linear-gradient(135deg,#5B9BD5,#1A5C8A)}
+.bg3{background:linear-gradient(135deg,#8B3A1A,#C85A28)}
+.bg4{background:linear-gradient(135deg,#C8A020,#E8C040)}
+.bg5{background:linear-gradient(135deg,#3A1A6B,#5A2A9E)}
+.bg6{background:linear-gradient(135deg,#1A5C5C,#2A8A8A)}
+.empty{text-align:center;padding:80px;color:var(--mid);grid-column:1/-1}
+.empty h3{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--pine);margin-bottom:8px}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.4);margin-top:60px}
+.footer-peak{height:10px;background:var(--dark);position:relative}
+.footer-inner{max-width:1200px;margin:0 auto;padding:52px 32px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+.footer-brand .fl{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:12px}
+.footer-brand .fl span{color:var(--gold)}
+.footer-brand p{font-size:13px;line-height:1.7;font-weight:300}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:14px}
+.footer-col a{display:block;color:rgba(255,255,255,0.4);text-decoration:none;font-size:13px;margin-bottom:8px;font-weight:300}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);text-align:center;padding:18px;font-size:12px;max-width:1200px;margin:0 auto}
+.footer-bottom a{color:rgba(255,255,255,0.35);text-decoration:none;margin:0 8px}
+.footer-bottom a:hover{color:var(--forest)}
+.admin-link{position:fixed;bottom:20px;right:20px;background:var(--pine);color:#fff;padding:10px 18px;font-size:12px;text-decoration:none;opacity:0.4;transition:opacity 0.2s;font-weight:700;border-radius:6px}
+.admin-link:hover{opacity:1}
+</style>
+</head>
+<body>
+<div class="mountain-top"></div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mountain">🏔</div>
+      <div class="logo-text">
+        <div class="logo-name">Alpen<span>Blog</span></div>
+        <div class="logo-sub">Hoch hinaus im Leben</div>
+      </div>
+    </a>
+    <div class="header-nav-pills">
+      <a href="index.html" class="pill active">🏔 Alpen</a>
+      <a href="index.html" class="pill">🌲 Natur</a>
+      <a href="index.html" class="pill">🎿 Ratgeber</a>
+    </div>
+  </div>
+</header>
+<nav><div class="nav-inner">
+  <a href="index.html">Home</a>
+  <a href="index.html">Berge</a>
+  <a href="index.html">Natur</a>
+  <a href="index.html">Reisen</a>
+  <a href="index.html">Ratgeber</a>
+  <a href="index.html">Lifestyle</a>
+  <a href="index.html">Kultur</a>
+</div></nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><div class="hero-badge-icon">🏔</div><div class="hero-badge-text">Alpiner Lifestyle Blog</div></div>
+      <h1>Hoch hinaus<em>im Leben</em></h1>
+      <p>Geschichten, Ratgeber und Inspirationen aus den Alpen — für alle, die das Leben in der Höhe lieben.</p>
+      <a href="#articles" class="hero-btn">Zum Blog →</a>
+    </div>
+    <div class="hero-tiles">
+      <div class="hero-tile"><div class="hero-tile-icon">🏔</div><div class="hero-tile-val">Alpen</div><div class="hero-tile-label">Bergwelt</div></div>
+      <div class="hero-tile"><div class="hero-tile-icon">🌲</div><div class="hero-tile-val">Natur</div><div class="hero-tile-label">Erleben</div></div>
+      <div class="hero-tile"><div class="hero-tile-icon">🎿</div><div class="hero-tile-val">Sport</div><div class="hero-tile-label">& Abenteuer</div></div>
+      <div class="hero-tile"><div class="hero-tile-icon">✍</div><div class="hero-tile-val">Täglich</div><div class="hero-tile-label">Neue Artikel</div></div>
+    </div>
+  </div>
+  <div class="hero-mountains">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,80 0,50 80,20 160,50 240,15 320,45 400,10 480,40 560,5 640,35 720,0 800,30 880,8 960,35 1040,12 1120,40 1200,20 1200,80" fill="#F0F5F1"/>
+    </svg>
+  </div>
+</div>
+
+<div class="section" id="articles" style="margin-top:48px">
+  <div class="section-head">
+    <div class="section-head-icon">✍</div>
+    <div class="section-head-title">Aktuelle Beiträge</div>
+    <div class="section-head-line"></div>
+    <a href="index.html" class="see-all">Alle anzeigen →</a>
+  </div>
+  <div class="grid" id="posts-grid">
+    <div class="empty"><h3>Noch keine Beiträge</h3><p>Inhalte erscheinen bald.</p></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="fl">Alpen<span>Blog</span></div><p>AlpenBlog bringt Geschichten, Ratgeber und Inspirationen aus der Bergwelt — für alle Alpen-Liebhaber.</p></div>
+    <div class="footer-col"><h4>Themen</h4><a href="#">Berge</a><a href="#">Natur</a><a href="#">Reisen</a><a href="#">Ratgeber</a></div>
+    <div class="footer-col"><h4>Blog</h4><a href="#">Über uns</a><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Kontakt</a></div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 AlpenBlog &nbsp;|&nbsp;<a href="#">Impressum</a>&nbsp;|&nbsp;<a href="#">Datenschutz</a></div>
+</footer>
+<a href="admin.html" class="admin-link">⚙ Admin</a>
+<script>
+const bgs=['bg1','bg2','bg3','bg4','bg5','bg6'];
+function loadPosts(){
+  const posts=JSON.parse(localStorage.getItem('db_posts')||'[]');
+  const grid=document.getElementById('posts-grid');
+  if(!posts.length)return;
+  grid.innerHTML='';
+  posts.slice().reverse().forEach((p,i)=>{
+    const bg=bgs[i%bgs.length];
+    const date=new Date(p.date).toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'});
+    const excerpt=p.content.replace(/<[^>]+>/g,'').substring(0,110)+'...';
+    const init=(p.author||'R').charAt(0).toUpperCase();
+    grid.innerHTML+=`<div class="card" onclick="location.href='post.html?id=${p.id}'">
+      <div class="card-img"><div class="card-img-bg ${bg}"></div><span class="card-cat">${p.category||'Alpen'}</span></div>
+      <div class="card-body">
+        <div class="card-author"><div class="card-author-dot">${init}</div><span class="card-author-name">${p.author||'Redaktion'}</span><span class="card-author-date">${date}</span></div>
+        <div class="card-title">${p.title}</div>
+        <div class="card-excerpt">${excerpt}</div>
+        <a class="card-link" href="post.html?id=${p.id}">Weiterlesen →</a>
+      </div></div>`;
+  });
+}
+loadPosts();
+</script>
+</body>
+</html>
